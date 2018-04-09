@@ -1,13 +1,13 @@
 ﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
 	x:Class="Design_Test_TomJoseC.MainWindow"
-	x:Name="Window"
+	x:Name="Window" 
 	Title="MainWindow" xmlns:b="clr-namespace:Design_Test_TomJoseC"
 	Width="640" Height="480">
 	<Window.Resources>
 		<Storyboard x:Key="Needle1Anim">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Needle1">
-				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="{Binding Text, ElementName=InputBox}">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="{Binding TargetAngle, ElementName=ClickCount}">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<CubicEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
@@ -37,7 +37,7 @@
 					</i:EventTrigger>
 				</i:Interaction.Triggers>
                 <i:Interaction.Behaviors>
-                    <b:ClickToDegreeBehavior x:Name="ClickCount"/>
+                    <b:ClickToDegreeBehavior Text="{Binding Text, ElementName=InputBox}" x:Name="ClickCount"/>
                 </i:Interaction.Behaviors>
 			</Button>
 		</StackPanel>
