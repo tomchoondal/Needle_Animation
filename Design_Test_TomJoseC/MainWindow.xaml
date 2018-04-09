@@ -5,40 +5,35 @@
 	Title="MainWindow" xmlns:b="clr-namespace:Design_Test_TomJoseC"
 	Width="640" Height="480">
 	<Window.Resources>
-		<Storyboard x:Key="Needle1Anim">
+		<Storyboard x:Key="NeedleAnim">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Needle1">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-				<EasingDoubleKeyFrame KeyTime="0:0:2"  Value="{Binding TargetAngle, ElementName=ClickCount}">
+                <EasingDoubleKeyFrame KeyTime="0:0:2"  Value="{Binding Text, ElementName=InputBox}">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<CubicEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
 				</EasingDoubleKeyFrame>
 			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
-		<Storyboard x:Key="Needle2Anim">
-			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Needle2">
-				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="{Binding DegreeToRotate, ElementName=ClickCount}">
-					<EasingDoubleKeyFrame.EasingFunction>
-						<CircleEase EasingMode="EaseOut"/>
-					</EasingDoubleKeyFrame.EasingFunction>
-				</EasingDoubleKeyFrame>
-			</DoubleAnimationUsingKeyFrames>
-		</Storyboard>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Needle2">
+                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="{Binding DegreeToRotate, ElementName=RotationBehavior}">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
 	</Window.Resources>
-	
-
 	<Grid x:Name="LayoutRoot">
 		<StackPanel HorizontalAlignment="Left" Height="22" Margin="12,12,0,0" Orientation="Horizontal" VerticalAlignment="Top">
 			<TextBox x:Name="InputBox" TextWrapping="Wrap" Width="180" Margin="0,0,12,0"/>
 			<Button Content="Animate" Width="80">
 				<i:Interaction.Triggers>
 					<i:EventTrigger EventName="Click">
-						<ei:ControlStoryboardAction Storyboard="{StaticResource Needle1Anim}"/>
-						<ei:ControlStoryboardAction Storyboard="{StaticResource Needle2Anim}"/>
+                        <ei:ControlStoryboardAction Storyboard="{StaticResource NeedleAnim}"/>
 					</i:EventTrigger>
 				</i:Interaction.Triggers>
                 <i:Interaction.Behaviors>
-                    <b:ClickToDegreeBehavior Text="{Binding Text, ElementName=InputBox}" x:Name="ClickCount"/>
+                    <b:RotationBehavior x:Name="RotationBehavior"/>
                 </i:Interaction.Behaviors>
 			</Button>
 		</StackPanel>
