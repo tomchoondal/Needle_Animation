@@ -7,7 +7,8 @@
 	<Window.Resources>
 		<Storyboard x:Key="Needle1Anim">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[2].(RotateTransform.Angle)" Storyboard.TargetName="Needle1">
-                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="{Binding TargetAngle, ElementName=ClickCount}">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2"  Value="{Binding TargetAngle, ElementName=ClickCount}">
 					<EasingDoubleKeyFrame.EasingFunction>
 						<CubicEase EasingMode="EaseOut"/>
 					</EasingDoubleKeyFrame.EasingFunction>
@@ -56,7 +57,7 @@
 				</Grid.RenderTransform>
 				<Path Data="M12.500001,0.5 L14.77852,65.91881 14.918419,65.943794 C20.386617,67.06275 24.500001,71.901007 24.500001,77.699997 24.500001,83.084772 20.953256,87.641163 16.068435,89.1605 L15.592727,89.295586 17.000001,129.7 8.0000008,129.7 9.4072751,89.295586 8.931568,89.1605 C4.0467452,87.641163 0.50000083,83.084772 0.5,77.699997 0.50000083,71.901007 4.6133846,67.06275 10.081583,65.943794 L10.221482,65.91881 z" Fill="#FFFF0500" HorizontalAlignment="Center" Margin="-15,0" Stretch="Fill" Stroke="#FF1A1A1A" Width="25"/>
 				<StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="0,0,0,-24" HorizontalAlignment="Center">
-					<TextBlock HorizontalAlignment="Center" FontSize="10.667" Text="{Binding Angle, ElementName=Needle2Rotation}" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="10.667" Text="{Binding Angle, ElementName=Needle2Rotation, StringFormat=\{0:#\}}" Foreground="White"/>
 					<TextBlock Text="°" HorizontalAlignment="Center" FontSize="10.667" Foreground="White"/>
 				</StackPanel>
 			</Grid>
@@ -71,7 +72,7 @@
 				</Grid.RenderTransform>
 				<Path Data="M12.469125,0.5 L18.547381,63.636623 18.722437,63.737278 C22.186222,65.841927 24.5,69.650757 24.5,74 24.5,77.520813 22.983715,80.687485 20.568529,82.882622 L20.413176,83.017189 22,99.5 3.000001,99.5 4.5773308,83.008965 4.4314713,82.882622 C2.0162858,80.687485 0.50000024,77.520813 0.5,74 0.50000024,69.650757 2.8137786,65.841927 6.2775643,63.737278 L6.4289494,63.650234 z" Fill="#FF0C00FF" Stretch="Fill" Stroke="#FF1A1A1A" d:LayoutOverrides="HorizontalMargin"/>
 				<StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0,0,0,19" HorizontalAlignment="Center">
-					<TextBlock HorizontalAlignment="Center" FontSize="10.667" Text="{Binding Angle, ElementName=Needle1Rotation}" Foreground="White"/>
+                    <TextBlock HorizontalAlignment="Center" FontSize="10.667" Text="{Binding Angle, ElementName=Needle1Rotation, StringFormat=\{0:#\}}" Foreground="White"/>
 					<TextBlock Text="°" HorizontalAlignment="Center" FontSize="10.667" Foreground="White"/>
 				</StackPanel>
 			</Grid>
